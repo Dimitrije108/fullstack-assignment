@@ -1,0 +1,29 @@
+@import 'tailwindcss';
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@layer base {
+  html, body, #root {
+    height: 100%;
+    font-family: Helvetica, Arial, sans-serif;
+    @apply bg-white text-gray-800;
+  }
+
+  h1 {
+    @apply text-2xl font-bold;
+  }
+
+  input {
+    @apply border border-gray-300;
+  }
+
+  button {
+    @apply pt-1 pb-1 pl-3 pr-3 border border-gray-300 rounded-3xl;
+  }
+
+  button:hover {
+    @apply cursor-pointer border-gray-400;
+  }
+}
