@@ -47,6 +47,11 @@ def get_products():
 		# Check HTTP status code
 		response.raise_for_status()
 		products = response.json()
+		
+		for product in products:
+			if product["categoryName"] == "Monitori":
+				product["price"] *= 1.10
+
 		return jsonify(products)
 	except requests.exceptions.RequestException as e:
 		status_code = getattr(e.response, "status_code", None)
