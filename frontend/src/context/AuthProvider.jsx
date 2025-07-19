@@ -48,8 +48,8 @@ const AuthProvider = ({ children }) => {
 		setToken(null);
 	};
 	// Check if user is authenticated
-	const authUser = async () => {
-		const userAuth = await checkToken();
+	const authUser = () => {
+		const userAuth = checkToken();
 		if (userAuth) {
 			const token = localStorage.getItem("token");
 			setToken(token);
