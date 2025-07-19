@@ -47,10 +47,15 @@ def get_products():
 		# Check HTTP status code
 		response.raise_for_status()
 		products = response.json()
-		
+
 		for product in products:
 			if product["categoryName"] == "Monitori":
 				product["price"] *= 1.10
+
+		# inside description change every "brzina" into "performanse"
+		for product in products:
+			if "brzina" in product["description"].lower():
+				product["description"] = product["description"].replace("brzina", "performanse").replace("Brzina", "Performanse")
 
 		return jsonify(products)
 	except requests.exceptions.RequestException as e:
